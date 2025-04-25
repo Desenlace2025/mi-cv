@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de CV</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #FFF8F0;
+      color: #4A4A4A;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    input[type="text"], input[type="file"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    button {
+      background-color: #E07A5F;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #d35e45;
+    }
+
+    .example {
+      font-style: italic;
+      color: #888;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #cv-preview {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+
+    #cv-preview img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #E07A5F;
+      margin-bottom: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+
+  <!-- Paso 0: Bienvenida -->
+  <div class="step active" id="step0">
+    <h2 style="color: #E07A5F;">👋 ¡Bienvenid@ al generador de CV!</h2>
+    <p>Completá los pasos para crear tu CV de forma simple y visual. Al final podrás descargarlo como PDF 💼</p>
+    <button onclick="nextStep()">Empezar</button>
+  </div>
+
+  <!-- Paso 1: Datos personales -->
+  <div class="step" id="step1">
+    <h2>Datos personales</h2>
+    <p class="example">Ej: Juan Pérez, Trelew</p>
+    <input type="text" placeholder="Nombre completo" id="nombre">
+    <input type="text" placeholder="Edad" id="edad">
+    <input type="text" placeholder="Ciudad y provincia" id="ciudad">
+    <input type="text" placeholder="Email" id="email">
+    <input type="text" placeholder="Teléfono" id="telefono">
+    <input type="file" accept="image/*" id="foto">
+    <button onclick="nextStep()">Siguiente</button>
+  </div>
+
+  <!-- Paso 2: Educación -->
+  <div class="step" id="step2">
+    <h2>Educación</h2>
+    <input type="text" placeholder="Nivel y nombre de institución" id="educacion">
+    <input type="text" placeholder="Título obtenido" id="titulo">
+    <button onclick="nextStep()">Siguiente</button>
+  </div>
+
+  <!-- Paso 3: Experiencia -->
+  <div class="step" id="step3">
+    <h2>Experiencia laboral</h2>
+    <input type="text" placeholder="Puesto y años" id="experiencia">
+    <input type="text" placeholder="Empresa o modalidad" id="empresa">
+    <button onclick="nextStep()">Siguiente</button>
+  </div>
+
+  <!-- Paso 4: Habilidades -->
+  <div class="step" id="step4">
+    <h2>Habilidades</h2>
+    <input type="text" placeholder="Habilidad 1" id="habilidad1">
+    <input type="text" placeholder="Habilidad 2" id="habilidad2">
+    <input type="text" placeholder="Habilidad 3" id="habilidad3">
+    <button onclick="nextStep()">Siguiente</button>
+  </div>
+
+  <!-- Paso 5: Idiomas y cursos -->
+  <div class="step" id="step5">
+    <h2>Idiomas y cursos</h2>
+    <input type="text" placeholder="Idioma y nivel (ej: Inglés - Intermedio)" id="idioma">
+    <input type="text" placeholder="Cursos realizados" id="cursos">
+    <input type="text" placeholder="Links (Portfolio, redes, etc)" id="links">
+    <button onclick="nextStep()">Vista previa</button>
+  </div>
+
+  <!-- Paso 6: Vista previa -->
+  <div class="step" id="step6">
+    <h2>Vista previa del CV</h2>
+    <div id="cv-preview">
+      <img id="cv-foto" src="" alt="Foto CV">
+      <h3 id="cv-nombre">Nombre Apellido</h3>
+      <p><strong>Edad:</strong> <span id="cv-edad"></span></p>
+      <p><strong>Ubicación:</strong> <span id="cv-ciudad"></span></p>
+      <p><strong>Email:</strong> <span id="cv-email"></span></p>
+      <p><strong>Teléfono:</strong> <span id="cv-telefono"></span></p>
+      <hr>
+      <p><strong>Educación:</strong> <span id="cv-educacion"></span></p>
+      <p><strong>Título:</strong> <span id="cv-titulo"></span></p>
+      <p><strong>Experiencia:</strong> <span id="cv-experiencia"></span></p>
+      <p><strong>Empresa/Modalidad:</strong> <span id="cv-empresa"></span></p>
+      <p><strong>Habilidades:</strong> <span id="cv-habilidades"></span></p>
+      <p><strong>Idiomas:</strong> <span id="cv-idiomas"></span></p>
+      <p><strong>Cursos:</strong> <span id="cv-cursos"></span></p>
+      <p><strong>Links:</strong> <span id="cv-links"></span></p>
+    </div>
+    <button onclick="descargarPDF()">Descargar PDF</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<script>
+  let step = 0;
+  function nextStep() {
+    document.getElementById(`step${step}`).classList.remove('active');
+    step++;
+    document.getElementById(`step${step}`).classList.add('active');
+    if (step === 6) previewCV();
+  }
+
+  function previewCV() {
+    document.getElementById('cv-nombre').innerText = document.getElementById('nombre').value;
+    document.getElementById('cv-edad').innerText = document.getElementById('edad').value;
+    document.getElementById('cv-ciudad').innerText = document.getElementById('ciudad').value;
+    document.getElementById('cv-email').innerText = document.getElementById('email').value;
+    document.getElementById('cv-telefono').innerText = document.getElementById('telefono').value;
+    document.getElementById('cv-educacion').innerText = document.getElementById('educacion').value;
+    document.getElementById('cv-titulo').innerText = document.getElementById('titulo').value;
+    document.getElementById('cv-experiencia').innerText = document.getElementById('experiencia').value;
+    document.getElementById('cv-empresa').innerText = document.getElementById('empresa').value;
+    document.getElementById('cv-habilidades').innerText = 
+      `${document.getElementById('habilidad1').value}, ${document.getElementById('habilidad2').value}, ${document.getElementById('habilidad3').value}`;
+    document.getElementById('cv-idiomas').innerText = document.getElementById('idioma').value;
+    document.getElementById('cv-cursos').innerText = document.getElementById('cursos').value;
+    document.getElementById('cv-links').innerText = document.getElementById('links').value;
+
+    const foto = document.getElementById('foto');
+    const img = document.getElementById('cv-foto');
+    if (foto.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e) => { img.src = e.target.result; };
+      reader.readAsDataURL(foto.files[0]);
+    }
+  }
+
+  function descargarPDF() {
+    const cv = document.getElementById("cv-preview");
+    html2pdf().from(cv).save("Mi_CV.pdf");
+  }
+</script>
+
+</body>
+</html>
