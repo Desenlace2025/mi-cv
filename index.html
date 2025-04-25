@@ -1,97 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!DOCTYPE html>
-<html lang="es">
-<head>
   <meta charset="UTF-8">
-  <title>Generador de CV</title>
-  <meta name="google-site-verification" content="XXXXXXXXXXXX" />
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Inicio</a></li>
-        <li><a href="#privacy">Política de Privacidad</a></li>
-        <li><a href="#terms">Términos de Servicio</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="home">
-    <h1>Bienvenid@ al Generador de CV</h1>
-    <p>Crea tu currículum de forma fácil y rápida. Completa los datos, agrega tu foto y genera tu CV.</p>
-  </section>
-
-  <section id="privacy">
-    <h2>Política de Privacidad</h2>
-    <p>En nuestro sitio web, la privacidad de nuestros visitantes es de suma importancia...</p>
-    <!-- Aquí va el contenido completo de la Política de Privacidad -->
-  </section>
-
-  <section id="terms">
-    <h2>Términos de Servicio</h2>
-    <p>Estos Términos de Servicio regulan el uso de nuestro sitio web...</p>
-    <!-- Aquí va el contenido completo de los Términos de Servicio -->
-  </section>
-
-  <section id="contact">
-    <h2>Contacto</h2>
-    <p>Si tienes alguna duda o pregunta, puedes ponerte en contacto con nosotros a través del siguiente correo:</p>
-    <p><a href="mailto:contacto@miweb.com">contacto@miweb.com</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Generador de CV. Todos los derechos reservados.</p>
-  </footer>
-</body>
-</html>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HJXJF78L6E');
-</script>
-  <meta charset="UTF-8">
-  <meta name="description" content="Genera tu CV de forma rápida y sencilla con nuestro generador online. Descargalo como PDF al instante.">
-  <meta charset="UTF-8">
-  <title>Generador de CV</title>
+  <title>Generador Mi Primer CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crea tu primer CV gratis, paso a paso. Generador amigable y simple para armar tu currículum en minutos.">
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #FFF8F0;
       color: #4A4A4A;
-      margin: 0;
-      padding: 0;
     }
 
-    .form-container {
-      width: 100%;
-      max-width: 600px;
-      margin: 2rem auto;
+    .container {
+      width: 90%;
+      max-width: 700px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .card {
       background: white;
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      animation: fadeIn 1s ease;
     }
 
-    .step {
-      display: none;
-    }
-
-    .step.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
+    h1, h2, h3 {
+      color: #E07A5F;
     }
 
     input[type="text"], input[type="file"] {
       width: 100%;
       padding: 0.75rem;
-      margin-bottom: 1rem;
+      margin: 0.5rem 0;
       border: 1px solid #ccc;
       border-radius: 10px;
     }
@@ -104,164 +50,102 @@
       border-radius: 12px;
       cursor: pointer;
       font-size: 1rem;
+      margin-top: 1rem;
     }
 
     button:hover {
       background-color: #d35e45;
     }
 
-    .example {
-      font-style: italic;
-      color: #888;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-
-    #cv-preview {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin-bottom: 1rem;
-    }
-
-    #cv-preview img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #E07A5F;
-      margin-bottom: 1rem;
-    }
-
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer {
+      font-size: 0.85rem;
+      color: #666;
+      margin-top: 3rem;
+      background-color: #fff4ea;
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    .footer h4 {
+      margin-top: 0;
+      color: #444;
+    }
+
+    .footer p {
+      margin-bottom: 0.5rem;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="card">
+      <h1>👋 ¡Bienvenid@ al Generador Mi Primer CV!</h1>
+      <p>Completá el siguiente formulario paso a paso y al final podrás descargar tu CV.</p>
+      <p>Subí tu foto, agregá tus datos y generá tu tarjeta de presentación ✨</p>
 
-<div class="form-container">
+      <h2>📝 Datos personales</h2>
+      <input type="text" id="nombre" placeholder="Nombre completo">
+      <input type="text" id="email" placeholder="Email de contacto">
+      <input type="text" id="telefono" placeholder="Teléfono">
+      <input type="file" id="foto" accept="image/*">
 
-  <!-- Paso 0: Bienvenida -->
-  <div class="step active" id="step0">
-    <h2 style="color: #E07A5F;">👋 ¡Bienvenid@ al generador de CV!</h2>
-    <p>Completá los pasos para crear tu CV de forma simple y visual. Al final podrás descargarlo como PDF 💼</p>
-    <button onclick="nextStep()">Empezar</button>
-  </div>
+      <h2>🎓 Educación</h2>
+      <input type="text" id="educacion" placeholder="Ej: Secundario completo - Escuela Nº123">
 
-  <!-- Paso 1: Datos personales -->
-  <div class="step" id="step1">
-    <h2>Datos personales</h2>
-    <p class="example">Ej: Juan Pérez, Trelew</p>
-    <input type="text" placeholder="Nombre completo" id="nombre">
-    <input type="text" placeholder="Edad" id="edad">
-    <input type="text" placeholder="Ciudad y provincia" id="ciudad">
-    <input type="text" placeholder="Email" id="email">
-    <input type="text" placeholder="Teléfono" id="telefono">
-    <input type="file" accept="image/*" id="foto">
-    <button onclick="nextStep()">Siguiente</button>
-  </div>
+      <h2>💼 Experiencia</h2>
+      <input type="text" id="experiencia" placeholder="Ej: Masajista freelance - 5 años">
 
-  <!-- Paso 2: Educación -->
-  <div class="step" id="step2">
-    <h2>Educación</h2>
-    <input type="text" placeholder="Nivel y nombre de institución" id="educacion">
-    <input type="text" placeholder="Título obtenido" id="titulo">
-    <button onclick="nextStep()">Siguiente</button>
-  </div>
+      <h2>🌟 Habilidades</h2>
+      <input type="text" id="habilidades" placeholder="Ej: Empatía, trabajo en equipo, organización">
 
-  <!-- Paso 3: Experiencia -->
-  <div class="step" id="step3">
-    <h2>Experiencia laboral</h2>
-    <input type="text" placeholder="Puesto y años" id="experiencia">
-    <input type="text" placeholder="Empresa o modalidad" id="empresa">
-    <button onclick="nextStep()">Siguiente</button>
-  </div>
-
-  <!-- Paso 4: Habilidades -->
-  <div class="step" id="step4">
-    <h2>Habilidades</h2>
-    <input type="text" placeholder="Habilidad 1" id="habilidad1">
-    <input type="text" placeholder="Habilidad 2" id="habilidad2">
-    <input type="text" placeholder="Habilidad 3" id="habilidad3">
-    <button onclick="nextStep()">Siguiente</button>
-  </div>
-
-  <!-- Paso 5: Idiomas y cursos -->
-  <div class="step" id="step5">
-    <h2>Idiomas y cursos</h2>
-    <input type="text" placeholder="Idioma y nivel (ej: Inglés - Intermedio)" id="idioma">
-    <input type="text" placeholder="Cursos realizados" id="cursos">
-    <input type="text" placeholder="Links (Portfolio, redes, etc)" id="links">
-    <button onclick="nextStep()">Vista previa</button>
-  </div>
-
-  <!-- Paso 6: Vista previa -->
-  <div class="step" id="step6">
-    <h2>Vista previa del CV</h2>
-    <div id="cv-preview">
-      <img id="cv-foto" src="" alt="Foto CV">
-      <h3 id="cv-nombre">Nombre Apellido</h3>
-      <p><strong>Edad:</strong> <span id="cv-edad"></span></p>
-      <p><strong>Ubicación:</strong> <span id="cv-ciudad"></span></p>
-      <p><strong>Email:</strong> <span id="cv-email"></span></p>
-      <p><strong>Teléfono:</strong> <span id="cv-telefono"></span></p>
-      <hr>
-      <p><strong>Educación:</strong> <span id="cv-educacion"></span></p>
-      <p><strong>Título:</strong> <span id="cv-titulo"></span></p>
-      <p><strong>Experiencia:</strong> <span id="cv-experiencia"></span></p>
-      <p><strong>Empresa/Modalidad:</strong> <span id="cv-empresa"></span></p>
-      <p><strong>Habilidades:</strong> <span id="cv-habilidades"></span></p>
-      <p><strong>Idiomas:</strong> <span id="cv-idiomas"></span></p>
-      <p><strong>Cursos:</strong> <span id="cv-cursos"></span></p>
-      <p><strong>Links:</strong> <span id="cv-links"></span></p>
+      <button onclick="mostrarCV()">Ver CV</button>
     </div>
-    <button onclick="descargarPDF()">Descargar PDF</button>
+
+    <div class="card" id="cv-preview" style="display:none;">
+      <h2>🎯 Vista previa del CV</h2>
+      <img id="img-preview" src="" style="max-width: 150px; border-radius: 50%; margin-bottom: 1rem;" alt="Tu foto">
+      <p><strong>Nombre:</strong> <span id="out-nombre"></span></p>
+      <p><strong>Email:</strong> <span id="out-email"></span></p>
+      <p><strong>Teléfono:</strong> <span id="out-telefono"></span></p>
+      <p><strong>Educación:</strong> <span id="out-educacion"></span></p>
+      <p><strong>Experiencia:</strong> <span id="out-experiencia"></span></p>
+      <p><strong>Habilidades:</strong> <span id="out-habilidades"></span></p>
+
+      <button onclick="window.print()">Descargar como PDF</button>
+    </div>
+
+    <div class="footer">
+      <h4>📜 Políticas del sitio web</h4>
+      <p>Este sitio web recopila únicamente los datos ingresados por el usuario con fines de generación de currículum. No se almacena información personal.</p>
+      <p>El contenido es gratuito y está pensado para uso personal. No se garantiza posicionamiento profesional automático.</p>
+      <p>Si tenés dudas, podés escribirnos a: contacto@tucvgratis.ar</p>
+    </div>
   </div>
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-<script>
-  let step = 0;
-  function nextStep() {
-    document.getElementById(`step${step}`).classList.remove('active');
-    step++;
-    document.getElementById(`step${step}`).classList.add('active');
-    if (step === 6) previewCV();
-  }
+  <script>
+    function mostrarCV() {
+      document.getElementById("cv-preview").style.display = "block";
+      document.getElementById("out-nombre").innerText = document.getElementById("nombre").value;
+      document.getElementById("out-email").innerText = document.getElementById("email").value;
+      document.getElementById("out-telefono").innerText = document.getElementById("telefono").value;
+      document.getElementById("out-educacion").innerText = document.getElementById("educacion").value;
+      document.getElementById("out-experiencia").innerText = document.getElementById("experiencia").value;
+      document.getElementById("out-habilidades").innerText = document.getElementById("habilidades").value;
 
-  function previewCV() {
-    document.getElementById('cv-nombre').innerText = document.getElementById('nombre').value;
-    document.getElementById('cv-edad').innerText = document.getElementById('edad').value;
-    document.getElementById('cv-ciudad').innerText = document.getElementById('ciudad').value;
-    document.getElementById('cv-email').innerText = document.getElementById('email').value;
-    document.getElementById('cv-telefono').innerText = document.getElementById('telefono').value;
-    document.getElementById('cv-educacion').innerText = document.getElementById('educacion').value;
-    document.getElementById('cv-titulo').innerText = document.getElementById('titulo').value;
-    document.getElementById('cv-experiencia').innerText = document.getElementById('experiencia').value;
-    document.getElementById('cv-empresa').innerText = document.getElementById('empresa').value;
-    document.getElementById('cv-habilidades').innerText = 
-      `${document.getElementById('habilidad1').value}, ${document.getElementById('habilidad2').value}, ${document.getElementById('habilidad3').value}`;
-    document.getElementById('cv-idiomas').innerText = document.getElementById('idioma').value;
-    document.getElementById('cv-cursos').innerText = document.getElementById('cursos').value;
-    document.getElementById('cv-links').innerText = document.getElementById('links').value;
-
-    const foto = document.getElementById('foto');
-    const img = document.getElementById('cv-foto');
-    if (foto.files[0]) {
-      const reader = new FileReader();
-      reader.onload = (e) => { img.src = e.target.result; };
-      reader.readAsDataURL(foto.files[0]);
+      const archivo = document.getElementById("foto").files[0];
+      if (archivo) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("img-preview").src = e.target.result;
+        }
+        reader.readAsDataURL(archivo);
+      }
     }
-  }
-
-  function descargarPDF() {
-    const cv = document.getElementById("cv-preview");
-    html2pdf().from(cv).save("Mi_CV.pdf");
-  }
-</script>
-
+  </script>
 </body>
 </html>
