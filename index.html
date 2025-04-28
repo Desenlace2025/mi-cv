@@ -1,77 +1,94 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Primer CV</title>
+  <title>Mi Primer CV Profesional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Crea tu primer CV de forma fácil, rápida y gratuita.">
+  <meta name="description" content="Generá tu primer CV de manera profesional, accesible y gratuita.">
+  <meta name="robots" content="index, follow">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #FFF8F0;
-      color: #4A4A4A;
+      font-family: 'Roboto', Arial, sans-serif;
+      background-color: #FAFAFA;
+      color: #333;
     }
     nav {
-      background-color: #E07A5F;
+      background-color: #003366;
       padding: 1rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
     }
     .container {
       padding: 2rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
     }
-    .step, section {
-      margin-bottom: 3rem;
-    }
-    .formulario input, .formulario button {
+    .formulario input, .formulario textarea, .formulario button, .formulario select {
       display: block;
       width: 100%;
       padding: 0.75rem;
       margin-bottom: 1rem;
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      font-size: 1rem;
     }
     .formulario button {
-      background-color: #E07A5F;
+      background-color: #003366;
       color: white;
-      border: none;
       cursor: pointer;
     }
     .formulario button:hover {
-      background-color: #d35e45;
+      background-color: #002244;
     }
     .cv-preview {
       background: white;
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     footer {
-      background-color: #f2f2f2;
+      background-color: #E0E0E0;
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
-      color: #777;
     }
-    hr {
-      margin: 2rem 0;
-      border: none;
-      border-top: 1px solid #eee;
+    h1, h2, h3 {
+      color: #003366;
+    }
+    .section-title {
+      margin-top: 2rem;
+      border-bottom: 2px solid #003366;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    img {
+      max-width: 150px;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
 
-<nav>
+<nav role="navigation" aria-label="Menú principal">
   <a href="#inicio">Inicio</a>
   <a href="#crear-cv">Crear CV</a>
   <a href="#politica">Política</a>
@@ -83,35 +100,43 @@
 <div class="container">
 
   <section id="inicio">
-    <h1>👋 ¡Bienvenid@ a Mi Primer CV!</h1>
-    <p>Creá tu primer currículum paso a paso, sin estrés, y descargalo gratis. ¡Listo para empezar tu carrera! 💼✨</p>
-    <button onclick="scrollToForm()">¡Empezar!</button>
+    <h1>Bienvenido a Mi Primer CV Profesional</h1>
+    <p>Creá tu currículum vitae de manera sencilla, completa y totalmente gratis. ¡Empecemos! 🚀</p>
+    <button onclick="scrollToForm()" aria-label="Ir al formulario de creación de CV">Crear CV</button>
   </section>
 
   <section id="crear-cv">
-    <h2>Crear tu CV</h2>
+    <h2 class="section-title">Formulario de creación de CV</h2>
 
-    <div class="formulario">
-      <input id="nombre" type="text" placeholder="Nombre completo">
-      <input id="fecha" type="text" placeholder="Fecha de nacimiento">
-      <input id="email" type="text" placeholder="Correo electrónico">
-      <input id="telefono" type="text" placeholder="Teléfono">
-      <input id="educacion" type="text" placeholder="Educación (Ej: Secundario completo)">
-      <input id="experiencia" type="text" placeholder="Experiencia laboral (Ej: 2 años en ventas)">
-      <input id="habilidades" type="text" placeholder="Habilidades (Ej: Comunicación, Trabajo en equipo)">
-      <input id="foto" type="file" accept="image/*">
-      <button onclick="mostrarVistaPrevia()">Ver vista previa</button>
-    </div>
+    <form class="formulario" aria-label="Formulario de creación de CV">
+      <input id="nombre" type="text" placeholder="Nombre completo" aria-label="Nombre completo" required>
+      <input id="direccion" type="text" placeholder="Dirección" aria-label="Dirección">
+      <input id="fecha" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento">
+      <input id="email" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
+      <input id="telefono" type="tel" placeholder="Teléfono" aria-label="Teléfono">
+      <input id="linkedin" type="url" placeholder="Perfil de LinkedIn" aria-label="Perfil de LinkedIn">
+      <textarea id="perfil" placeholder="Perfil personal (breve descripción tuya)" rows="3" aria-label="Perfil personal"></textarea>
+      <input id="educacion" type="text" placeholder="Formación académica" aria-label="Formación académica">
+      <input id="experiencia" type="text" placeholder="Experiencia laboral" aria-label="Experiencia laboral">
+      <input id="idiomas" type="text" placeholder="Idiomas (Ej: Español nativo, Inglés intermedio)" aria-label="Idiomas">
+      <input id="referencias" type="text" placeholder="Referencias laborales (opcional)" aria-label="Referencias laborales">
+      <input id="foto" type="file" accept="image/*" aria-label="Foto de perfil">
+      <button type="button" onclick="mostrarVistaPrevia()">Vista previa del CV</button>
+    </form>
 
-    <div id="vista-previa" class="cv-preview" style="display:none;">
+    <div id="vista-previa" class="cv-preview" style="display:none;" aria-live="polite">
       <h3 id="preview-nombre">Nombre Apellido</h3>
+      <p id="preview-perfil">Perfil: --</p>
+      <p id="preview-direccion">Dirección: --</p>
       <p id="preview-fecha">Fecha de nacimiento: --</p>
       <p id="preview-email">Correo: --</p>
       <p id="preview-telefono">Teléfono: --</p>
+      <p id="preview-linkedin">LinkedIn: --</p>
       <p id="preview-educacion">Educación: --</p>
       <p id="preview-experiencia">Experiencia: --</p>
-      <p id="preview-habilidades">Habilidades: --</p>
-      <img id="preview-foto" src="" style="max-width: 150px; border-radius: 10px; margin-top: 1rem;">
+      <p id="preview-idiomas">Idiomas: --</p>
+      <p id="preview-referencias">Referencias: --</p>
+      <img id="preview-foto" src="" alt="Foto de perfil cargada">
       <br><br>
       <button onclick="descargarPDF()">Descargar como PDF</button>
     </div>
@@ -121,29 +146,29 @@
   <hr>
 
   <section id="politica">
-    <h2>Política de Privacidad</h2>
-    <p>Respetamos tu privacidad. Los datos que ingreses solo se usan para generar tu currículum. No se almacenan ni comparten con terceros.</p>
+    <h2 class="section-title">Política de Privacidad</h2>
+    <p>Tu información personal solo se utiliza para generar tu currículum. No se almacena ni se comparte con terceros.</p>
   </section>
 
   <section id="terminos">
-    <h2>Términos y Condiciones</h2>
-    <p>Este sitio web ofrece una herramienta gratuita para la creación de currículums. No garantizamos empleo ni resultados laborales.</p>
+    <h2 class="section-title">Términos y Condiciones</h2>
+    <p>Este sitio web proporciona una herramienta gratuita para la creación de currículums. No garantizamos resultados laborales ni contratación.</p>
   </section>
 
   <section id="contacto">
-    <h2>Contacto</h2>
-    <p>¿Tenés alguna duda o sugerencia? Escribinos a: <a href="mailto:contacto@micv.com">contacto@micv.com</a></p>
+    <h2 class="section-title">Contacto</h2>
+    <p>Si tenés preguntas o sugerencias, escribinos a: <a href="mailto:contacto@micvprofesional.com">contacto@micvprofesional.com</a></p>
   </section>
 
   <section id="nosotros">
-    <h2>Sobre Nosotros</h2>
-    <p>Mi Primer CV nació para ayudar a quienes están dando sus primeros pasos laborales. Queremos que tu presentación sea la mejor posible, ¡gratis y fácil!</p>
+    <h2 class="section-title">Sobre Nosotros</h2>
+    <p>Mi Primer CV Profesional busca democratizar el acceso a herramientas laborales de calidad, fomentando la inclusión y la accesibilidad para tod@s.</p>
   </section>
 
 </div>
 
-<footer>
-  &copy; 2025 Mi Primer CV - Todos los derechos reservados
+<footer role="contentinfo">
+  &copy; 2025 Mi Primer CV Profesional - Todos los derechos reservados
 </footer>
 
 <script>
@@ -155,12 +180,16 @@ function mostrarVistaPrevia() {
   document.getElementById('vista-previa').style.display = 'block';
 
   document.getElementById('preview-nombre').innerText = document.getElementById('nombre').value || "Nombre Apellido";
+  document.getElementById('preview-direccion').innerText = "Dirección: " + (document.getElementById('direccion').value || "--");
   document.getElementById('preview-fecha').innerText = "Fecha de nacimiento: " + (document.getElementById('fecha').value || "--");
   document.getElementById('preview-email').innerText = "Correo: " + (document.getElementById('email').value || "--");
   document.getElementById('preview-telefono').innerText = "Teléfono: " + (document.getElementById('telefono').value || "--");
+  document.getElementById('preview-linkedin').innerText = "LinkedIn: " + (document.getElementById('linkedin').value || "--");
+  document.getElementById('preview-perfil').innerText = "Perfil: " + (document.getElementById('perfil').value || "--");
   document.getElementById('preview-educacion').innerText = "Educación: " + (document.getElementById('educacion').value || "--");
   document.getElementById('preview-experiencia').innerText = "Experiencia: " + (document.getElementById('experiencia').value || "--");
-  document.getElementById('preview-habilidades').innerText = "Habilidades: " + (document.getElementById('habilidades').value || "--");
+  document.getElementById('preview-idiomas').innerText = "Idiomas: " + (document.getElementById('idiomas').value || "--");
+  document.getElementById('preview-referencias').innerText = "Referencias: " + (document.getElementById('referencias').value || "--");
 
   const fotoInput = document.getElementById('foto');
   const previewImg = document.getElementById('preview-foto');
@@ -176,7 +205,7 @@ function mostrarVistaPrevia() {
 }
 
 function descargarPDF() {
-  alert("Por ahora podés descargar tu CV haciendo captura de pantalla. En breve habilitaremos descarga en PDF.");
+  alert("En breve podrás descargar el PDF. Mientras tanto, hacé una captura de pantalla para guardar tu CV.");
 }
 </script>
 
