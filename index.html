@@ -2,150 +2,183 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador Mi Primer CV</title>
+  <title>Mi Primer CV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Crea tu primer CV gratis, paso a paso. Generador amigable y simple para armar tu currículum en minutos.">
+  <meta name="description" content="Crea tu primer CV de forma fácil, rápida y gratuita.">
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #FFF8F0;
       color: #4A4A4A;
     }
-
+    nav {
+      background-color: #E07A5F;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .container {
-      width: 90%;
-      max-width: 700px;
+      padding: 2rem;
+      max-width: 800px;
       margin: auto;
-      padding: 2rem;
     }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-      animation: fadeIn 1s ease;
+    .step, section {
+      margin-bottom: 3rem;
     }
-
-    h1, h2, h3 {
-      color: #E07A5F;
-    }
-
-    input[type="text"], input[type="file"] {
+    .formulario input, .formulario button {
+      display: block;
       width: 100%;
       padding: 0.75rem;
-      margin: 0.5rem 0;
-      border: 1px solid #ccc;
+      margin-bottom: 1rem;
       border-radius: 10px;
+      border: 1px solid #ccc;
     }
-
-    button {
+    .formulario button {
       background-color: #E07A5F;
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
       cursor: pointer;
-      font-size: 1rem;
-      margin-top: 1rem;
     }
-
-    button:hover {
+    .formulario button:hover {
       background-color: #d35e45;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .cv-preview {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
     }
-
-    .footer {
-      font-size: 0.85rem;
-      color: #666;
-      margin-top: 3rem;
-      background-color: #fff4ea;
-      padding: 1.5rem;
-      border-radius: 12px;
+    footer {
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
     }
-
-    .footer h4 {
-      margin-top: 0;
-      color: #444;
-    }
-
-    .footer p {
-      margin-bottom: 0.5rem;
+    hr {
+      margin: 2rem 0;
+      border: none;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <h1>👋 ¡Bienvenid@ al Generador Mi Primer CV!</h1>
-      <p>Completá el siguiente formulario paso a paso y al final podrás descargar tu CV.</p>
-      <p>Subí tu foto, agregá tus datos y generá tu tarjeta de presentación ✨</p>
 
-      <h2>📝 Datos personales</h2>
-      <input type="text" id="nombre" placeholder="Nombre completo">
-      <input type="text" id="email" placeholder="Email de contacto">
-      <input type="text" id="telefono" placeholder="Teléfono">
-      <input type="file" id="foto" accept="image/*">
+<nav>
+  <a href="#inicio">Inicio</a>
+  <a href="#crear-cv">Crear CV</a>
+  <a href="#politica">Política</a>
+  <a href="#terminos">Términos</a>
+  <a href="#contacto">Contacto</a>
+  <a href="#nosotros">Sobre Nosotros</a>
+</nav>
 
-      <h2>🎓 Educación</h2>
-      <input type="text" id="educacion" placeholder="Ej: Secundario completo - Escuela Nº123">
+<div class="container">
 
-      <h2>💼 Experiencia</h2>
-      <input type="text" id="experiencia" placeholder="Ej: Masajista freelance - 5 años">
+  <section id="inicio">
+    <h1>👋 ¡Bienvenid@ a Mi Primer CV!</h1>
+    <p>Creá tu primer currículum paso a paso, sin estrés, y descargalo gratis. ¡Listo para empezar tu carrera! 💼✨</p>
+    <button onclick="scrollToForm()">¡Empezar!</button>
+  </section>
 
-      <h2>🌟 Habilidades</h2>
-      <input type="text" id="habilidades" placeholder="Ej: Empatía, trabajo en equipo, organización">
+  <section id="crear-cv">
+    <h2>Crear tu CV</h2>
 
-      <button onclick="mostrarCV()">Ver CV</button>
+    <div class="formulario">
+      <input id="nombre" type="text" placeholder="Nombre completo">
+      <input id="fecha" type="text" placeholder="Fecha de nacimiento">
+      <input id="email" type="text" placeholder="Correo electrónico">
+      <input id="telefono" type="text" placeholder="Teléfono">
+      <input id="educacion" type="text" placeholder="Educación (Ej: Secundario completo)">
+      <input id="experiencia" type="text" placeholder="Experiencia laboral (Ej: 2 años en ventas)">
+      <input id="habilidades" type="text" placeholder="Habilidades (Ej: Comunicación, Trabajo en equipo)">
+      <input id="foto" type="file" accept="image/*">
+      <button onclick="mostrarVistaPrevia()">Ver vista previa</button>
     </div>
 
-    <div class="card" id="cv-preview" style="display:none;">
-      <h2>🎯 Vista previa del CV</h2>
-      <img id="img-preview" src="" style="max-width: 150px; border-radius: 50%; margin-bottom: 1rem;" alt="Tu foto">
-      <p><strong>Nombre:</strong> <span id="out-nombre"></span></p>
-      <p><strong>Email:</strong> <span id="out-email"></span></p>
-      <p><strong>Teléfono:</strong> <span id="out-telefono"></span></p>
-      <p><strong>Educación:</strong> <span id="out-educacion"></span></p>
-      <p><strong>Experiencia:</strong> <span id="out-experiencia"></span></p>
-      <p><strong>Habilidades:</strong> <span id="out-habilidades"></span></p>
-
-      <button onclick="window.print()">Descargar como PDF</button>
+    <div id="vista-previa" class="cv-preview" style="display:none;">
+      <h3 id="preview-nombre">Nombre Apellido</h3>
+      <p id="preview-fecha">Fecha de nacimiento: --</p>
+      <p id="preview-email">Correo: --</p>
+      <p id="preview-telefono">Teléfono: --</p>
+      <p id="preview-educacion">Educación: --</p>
+      <p id="preview-experiencia">Experiencia: --</p>
+      <p id="preview-habilidades">Habilidades: --</p>
+      <img id="preview-foto" src="" style="max-width: 150px; border-radius: 10px; margin-top: 1rem;">
+      <br><br>
+      <button onclick="descargarPDF()">Descargar como PDF</button>
     </div>
 
-    <div class="footer">
-      <h4>📜 Políticas del sitio web</h4>
-      <p>Este sitio web recopila únicamente los datos ingresados por el usuario con fines de generación de currículum. No se almacena información personal.</p>
-      <p>El contenido es gratuito y está pensado para uso personal. No se garantiza posicionamiento profesional automático.</p>
-      <p>Si tenés dudas, podés escribirnos a: contacto@tucvgratis.ar</p>
-    </div>
-  </div>
+  </section>
 
-  <script>
-    function mostrarCV() {
-      document.getElementById("cv-preview").style.display = "block";
-      document.getElementById("out-nombre").innerText = document.getElementById("nombre").value;
-      document.getElementById("out-email").innerText = document.getElementById("email").value;
-      document.getElementById("out-telefono").innerText = document.getElementById("telefono").value;
-      document.getElementById("out-educacion").innerText = document.getElementById("educacion").value;
-      document.getElementById("out-experiencia").innerText = document.getElementById("experiencia").value;
-      document.getElementById("out-habilidades").innerText = document.getElementById("habilidades").value;
+  <hr>
 
-      const archivo = document.getElementById("foto").files[0];
-      if (archivo) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          document.getElementById("img-preview").src = e.target.result;
-        }
-        reader.readAsDataURL(archivo);
-      }
+  <section id="politica">
+    <h2>Política de Privacidad</h2>
+    <p>Respetamos tu privacidad. Los datos que ingreses solo se usan para generar tu currículum. No se almacenan ni comparten con terceros.</p>
+  </section>
+
+  <section id="terminos">
+    <h2>Términos y Condiciones</h2>
+    <p>Este sitio web ofrece una herramienta gratuita para la creación de currículums. No garantizamos empleo ni resultados laborales.</p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>¿Tenés alguna duda o sugerencia? Escribinos a: <a href="mailto:contacto@micv.com">contacto@micv.com</a></p>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre Nosotros</h2>
+    <p>Mi Primer CV nació para ayudar a quienes están dando sus primeros pasos laborales. Queremos que tu presentación sea la mejor posible, ¡gratis y fácil!</p>
+  </section>
+
+</div>
+
+<footer>
+  &copy; 2025 Mi Primer CV - Todos los derechos reservados
+</footer>
+
+<script>
+function scrollToForm() {
+  document.getElementById('crear-cv').scrollIntoView({ behavior: 'smooth' });
+}
+
+function mostrarVistaPrevia() {
+  document.getElementById('vista-previa').style.display = 'block';
+
+  document.getElementById('preview-nombre').innerText = document.getElementById('nombre').value || "Nombre Apellido";
+  document.getElementById('preview-fecha').innerText = "Fecha de nacimiento: " + (document.getElementById('fecha').value || "--");
+  document.getElementById('preview-email').innerText = "Correo: " + (document.getElementById('email').value || "--");
+  document.getElementById('preview-telefono').innerText = "Teléfono: " + (document.getElementById('telefono').value || "--");
+  document.getElementById('preview-educacion').innerText = "Educación: " + (document.getElementById('educacion').value || "--");
+  document.getElementById('preview-experiencia').innerText = "Experiencia: " + (document.getElementById('experiencia').value || "--");
+  document.getElementById('preview-habilidades').innerText = "Habilidades: " + (document.getElementById('habilidades').value || "--");
+
+  const fotoInput = document.getElementById('foto');
+  const previewImg = document.getElementById('preview-foto');
+  if (fotoInput.files && fotoInput.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      previewImg.src = e.target.result;
     }
-  </script>
+    reader.readAsDataURL(fotoInput.files[0]);
+  } else {
+    previewImg.src = "";
+  }
+}
+
+function descargarPDF() {
+  alert("Por ahora podés descargar tu CV haciendo captura de pantalla. En breve habilitaremos descarga en PDF.");
+}
+</script>
+
 </body>
 </html>
