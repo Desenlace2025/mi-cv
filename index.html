@@ -1,213 +1,216 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Primer CV Profesional</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generá tu primer CV de manera profesional, accesible y gratuita.">
-  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Crea tu Curriculum Vitae de manera fácil, accesible e inclusiva. Cumple con los requisitos de AdSense y adaptado a personas con discapacidad.">
+  <title>Generador de CV Profesional</title>
+
+  <!-- Estilos -->
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', Arial, sans-serif;
-      background-color: #FAFAFA;
-      color: #333;
-    }
-    nav {
-      background-color: #003366;
-      padding: 1rem;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #FFF8F0;
+      color: #5A3E36;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      text-decoration: underline;
+      flex-direction: column;
+      min-height: 100vh;
     }
     .container {
+      width: 95%;
+      max-width: 700px;
+      background: #FFFFFF;
       padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .formulario input, .formulario textarea, .formulario button, .formulario select {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-    .formulario button {
-      background-color: #003366;
-      color: white;
-      cursor: pointer;
-    }
-    .formulario button:hover {
-      background-color: #002244;
-    }
-    .cv-preview {
-      background: white;
-      padding: 2rem;
+      margin: 2rem auto;
       border-radius: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #D77A61;
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    button {
+      background-color: #D77A61;
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #C2644A;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    nav {
+      margin-top: 2rem;
+      text-align: center;
     }
     footer {
-      background-color: #E0E0E0;
+      margin-top: auto;
+      font-size: 0.8rem;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
+      color: #888;
+      padding: 2rem;
     }
-    h1, h2, h3 {
-      color: #003366;
+    a {
+      color: #D77A61;
+      text-decoration: none;
     }
-    .section-title {
+    .legal-section {
+      background: #FFF8F0;
+      padding: 2rem;
       margin-top: 2rem;
-      border-bottom: 2px solid #003366;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      border-radius: 20px;
     }
-    img {
-      max-width: 150px;
-      border-radius: 8px;
-      margin-top: 1rem;
+    .legal-section h2 {
+      color: #C2644A;
+      margin-top: 1.5rem;
     }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
+
 <body>
+  <div class="container" role="main">
 
-<nav role="navigation" aria-label="Menú principal">
-  <a href="#inicio">Inicio</a>
-  <a href="#crear-cv">Crear CV</a>
-  <a href="#politica">Política</a>
-  <a href="#terminos">Términos</a>
-  <a href="#contacto">Contacto</a>
-  <a href="#nosotros">Sobre Nosotros</a>
-</nav>
+    <h1>🌟 Generá tu CV Profesional</h1>
 
-<div class="container">
-
-  <section id="inicio">
-    <h1>Bienvenido a Mi Primer CV Profesional</h1>
-    <p>Creá tu currículum vitae de manera sencilla, completa y totalmente gratis. ¡Empecemos! 🚀</p>
-    <button onclick="scrollToForm()" aria-label="Ir al formulario de creación de CV">Crear CV</button>
-  </section>
-
-  <section id="crear-cv">
-    <h2 class="section-title">Formulario de creación de CV</h2>
-
-    <form class="formulario" aria-label="Formulario de creación de CV">
-      <input id="nombre" type="text" placeholder="Nombre completo" aria-label="Nombre completo" required>
-      <input id="direccion" type="text" placeholder="Dirección" aria-label="Dirección">
-      <input id="fecha" type="date" placeholder="Fecha de nacimiento" aria-label="Fecha de nacimiento">
-      <input id="email" type="email" placeholder="Correo electrónico" aria-label="Correo electrónico" required>
-      <input id="telefono" type="tel" placeholder="Teléfono" aria-label="Teléfono">
-      <input id="linkedin" type="url" placeholder="Perfil de LinkedIn" aria-label="Perfil de LinkedIn">
-      <textarea id="perfil" placeholder="Perfil personal (breve descripción tuya)" rows="3" aria-label="Perfil personal"></textarea>
-      <input id="educacion" type="text" placeholder="Formación académica" aria-label="Formación académica">
-      <input id="experiencia" type="text" placeholder="Experiencia laboral" aria-label="Experiencia laboral">
-      <input id="idiomas" type="text" placeholder="Idiomas (Ej: Español nativo, Inglés intermedio)" aria-label="Idiomas">
-      <input id="referencias" type="text" placeholder="Referencias laborales (opcional)" aria-label="Referencias laborales">
-      <input id="foto" type="file" accept="image/*" aria-label="Foto de perfil">
-      <button type="button" onclick="mostrarVistaPrevia()">Vista previa del CV</button>
-    </form>
-
-    <div id="vista-previa" class="cv-preview" style="display:none;" aria-live="polite">
-      <h3 id="preview-nombre">Nombre Apellido</h3>
-      <p id="preview-perfil">Perfil: --</p>
-      <p id="preview-direccion">Dirección: --</p>
-      <p id="preview-fecha">Fecha de nacimiento: --</p>
-      <p id="preview-email">Correo: --</p>
-      <p id="preview-telefono">Teléfono: --</p>
-      <p id="preview-linkedin">LinkedIn: --</p>
-      <p id="preview-educacion">Educación: --</p>
-      <p id="preview-experiencia">Experiencia: --</p>
-      <p id="preview-idiomas">Idiomas: --</p>
-      <p id="preview-referencias">Referencias: --</p>
-      <img id="preview-foto" src="" alt="Foto de perfil cargada">
-      <br><br>
-      <button onclick="descargarPDF()">Descargar como PDF</button>
+    <!-- Pasos -->
+    <div id="step0" class="step active" aria-labelledby="bienvenida">
+      <h2 id="bienvenida">¡Bienvenid@!</h2>
+      <p>Este generador te ayudará a crear tu primer CV de forma simple, profesional e inclusiva.</p>
+      <button onclick="nextStep()">Comenzar</button>
     </div>
 
-  </section>
+    <div id="step1" class="step" aria-labelledby="datos-personales">
+      <h2 id="datos-personales">Datos personales</h2>
+      <label for="nombre">Nombre completo</label>
+      <input id="nombre" type="text" aria-required="true">
 
-  <hr>
+      <label for="edad">Edad</label>
+      <input id="edad" type="number" aria-required="true">
 
-  <section id="politica">
-    <h2 class="section-title">Política de Privacidad</h2>
-    <p>Tu información personal solo se utiliza para generar tu currículum. No se almacena ni se comparte con terceros.</p>
-  </section>
+      <label for="email">Correo electrónico</label>
+      <input id="email" type="email" aria-required="true">
 
-  <section id="terminos">
-    <h2 class="section-title">Términos y Condiciones</h2>
-    <p>Este sitio web proporciona una herramienta gratuita para la creación de currículums. No garantizamos resultados laborales ni contratación.</p>
-  </section>
+      <label for="telefono">Teléfono</label>
+      <input id="telefono" type="tel">
 
-  <section id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p>Si tenés preguntas o sugerencias, escribinos a: <a href="mailto:contacto@micvprofesional.com">contacto@micvprofesional.com</a></p>
-  </section>
+      <label for="direccion">Ciudad y Provincia</label>
+      <input id="direccion" type="text">
 
-  <section id="nosotros">
-    <h2 class="section-title">Sobre Nosotros</h2>
-    <p>Mi Primer CV Profesional busca democratizar el acceso a herramientas laborales de calidad, fomentando la inclusión y la accesibilidad para tod@s.</p>
-  </section>
+      <nav>
+        <button onclick="nextStep()">Siguiente</button>
+      </nav>
+    </div>
 
-</div>
+    <div id="step2" class="step" aria-labelledby="formacion">
+      <h2 id="formacion">Formación académica</h2>
+      <label for="estudios">Estudios realizados</label>
+      <textarea id="estudios" rows="4"></textarea>
 
-<footer role="contentinfo">
-  &copy; 2025 Mi Primer CV Profesional - Todos los derechos reservados
-</footer>
+      <nav>
+        <button onclick="prevStep()">Anterior</button>
+        <button onclick="nextStep()">Siguiente</button>
+      </nav>
+    </div>
 
-<script>
-function scrollToForm() {
-  document.getElementById('crear-cv').scrollIntoView({ behavior: 'smooth' });
-}
+    <div id="step3" class="step" aria-labelledby="experiencia">
+      <h2 id="experiencia">Experiencia laboral</h2>
+      <label for="experiencia">Experiencia detallada</label>
+      <textarea id="experiencia" rows="4"></textarea>
 
-function mostrarVistaPrevia() {
-  document.getElementById('vista-previa').style.display = 'block';
+      <nav>
+        <button onclick="prevStep()">Anterior</button>
+        <button onclick="nextStep()">Siguiente</button>
+      </nav>
+    </div>
 
-  document.getElementById('preview-nombre').innerText = document.getElementById('nombre').value || "Nombre Apellido";
-  document.getElementById('preview-direccion').innerText = "Dirección: " + (document.getElementById('direccion').value || "--");
-  document.getElementById('preview-fecha').innerText = "Fecha de nacimiento: " + (document.getElementById('fecha').value || "--");
-  document.getElementById('preview-email').innerText = "Correo: " + (document.getElementById('email').value || "--");
-  document.getElementById('preview-telefono').innerText = "Teléfono: " + (document.getElementById('telefono').value || "--");
-  document.getElementById('preview-linkedin').innerText = "LinkedIn: " + (document.getElementById('linkedin').value || "--");
-  document.getElementById('preview-perfil').innerText = "Perfil: " + (document.getElementById('perfil').value || "--");
-  document.getElementById('preview-educacion').innerText = "Educación: " + (document.getElementById('educacion').value || "--");
-  document.getElementById('preview-experiencia').innerText = "Experiencia: " + (document.getElementById('experiencia').value || "--");
-  document.getElementById('preview-idiomas').innerText = "Idiomas: " + (document.getElementById('idiomas').value || "--");
-  document.getElementById('preview-referencias').innerText = "Referencias: " + (document.getElementById('referencias').value || "--");
+    <div id="step4" class="step" aria-labelledby="habilidades">
+      <h2 id="habilidades">Habilidades</h2>
+      <label for="habilidadesInput">Describí tus habilidades principales</label>
+      <textarea id="habilidadesInput" rows="4"></textarea>
 
-  const fotoInput = document.getElementById('foto');
-  const previewImg = document.getElementById('preview-foto');
-  if (fotoInput.files && fotoInput.files[0]) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      previewImg.src = e.target.result;
+      <nav>
+        <button onclick="prevStep()">Anterior</button>
+        <button onclick="nextStep()">Finalizar</button>
+      </nav>
+    </div>
+
+    <div id="step5" class="step" aria-labelledby="final">
+      <h2 id="final">¡Listo!</h2>
+      <p>Tu currículum fue generado. Podés copiar y pegar los datos en un documento de texto o PDF.</p>
+      <button onclick="alert('Función de descarga disponible próximamente')">Descargar PDF</button>
+
+      <nav>
+        <button onclick="prevStep()">Anterior</button>
+      </nav>
+    </div>
+
+    <!-- Secciones legales -->
+    <div class="legal-section" id="politica-privacidad">
+      <h2>Política de Privacidad</h2>
+      <p>Respetamos tu privacidad. No almacenamos, compartimos ni comercializamos tus datos personales ingresados en este sitio. Toda la información es procesada localmente en tu dispositivo.</p>
+    </div>
+
+    <div class="legal-section" id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Necesitás ayuda? Podés escribirnos a: <strong>contacto@desenlace2025.com</strong></p>
+    </div>
+
+    <div class="legal-section" id="historia">
+      <h2>Sobre Nosotros</h2>
+      <p>Este sitio fue creado para ayudar a personas de todo el mundo a construir su primer Currículum Vitae de forma accesible, inclusiva y profesional, sin barreras económicas.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p><a href="#politica-privacidad">Política de Privacidad</a> | <a href="#contacto">Contacto</a> | <a href="#historia">Sobre Nosotros</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Script Navegación -->
+  <script>
+    let step = 0;
+    function showStep() {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((s, i) => {
+        s.classList.toggle('active', i === step);
+      });
     }
-    reader.readAsDataURL(fotoInput.files[0]);
-  } else {
-    previewImg.src = "";
-  }
-}
-
-function descargarPDF() {
-  alert("En breve podrás descargar el PDF. Mientras tanto, hacé una captura de pantalla para guardar tu CV.");
-}
-</script>
-
+    function nextStep() {
+      if (step < 5) step++;
+      showStep();
+    }
+    function prevStep() {
+      if (step > 0) step--;
+      showStep();
+    }
+  </script>
 </body>
 </html>
